@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credential Breach Checker</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="scanlines"></div>
+    
+    <div class="layout-container">
+        <!-- HEADER / NAVIGATION -->
+        <header class="cyber-header">
+            <h1 class="glitch" data-text="Credential Breach Checker">Credential Breach Checker</h1>
+            <nav class="cyber-nav">
+                <button data-page="app-page" class="nav-btn active">[CHECK MY SAFETY]</button>
+                <button data-page="about-page" class="nav-btn">[HOW IT WORKS]</button>
+                <button data-page="team-page" class="nav-btn">[OUR TEAM]</button>
+                <button data-page="ai-page" class="nav-btn">[CYBER AI]</button>
+            </nav>
+        </header>
+
+        <!-- MAIN CONTENT AREA -->
+        <main class="cyber-main">
+            <!-- PAGE 1: VERIFY -->
+            <section id="app-page" class="page active">
+                <div class="cyber-panel main-panel">
+                    <div class="panel-header">
+                        <span class="blinking">>> START SAFETY CHECKER</span>
+                    </div>
+
+                    <div class="sub-tabs">
+                        <button class="sub-tab-btn active" data-tab="password-tab">CHECK PASSWORD</button>
+                        <button class="sub-tab-btn" data-tab="email-tab">CHECK EMAIL</button>
+                        <button class="sub-tab-btn" data-tab="generator-tab">PASS GEN</button>
+                    </div>
+
+                    <div class="tab-content active" id="password-tab">
+                        <p class="cyber-desc">>> Enter your password. It stays on your computer and is never sent to us.</p>
+                        <div class="input-group">
+                            <input type="password" id="password-input" class="cyber-input" placeholder="ENTER PASSWORD">
+                            <button id="check-password-btn" class="cyber-btn">
+                                <span class="btn-text">CHECK NOW</span>
+                            </button>
+                        </div>
+                        
+                        <div class="strength-meter-container hidden" id="pwd-strength-container">
+                            <div class="strength-bar" id="pwd-strength-bar"></div>
+                            <div class="strength-label" id="pwd-strength-label">STRENGTH: ---</div>
+                        </div>
+                        
+                        <div id="password-hash-vis" class="hash-vis hidden">
+                            <div class="hash-step">
+                                <span class="label">Math:</span> <span class="highlight">Secure Math Scramble</span>
+                            </div>
+                            <div class="hash-step">
+                                <span class="label">Result:</span> <span id="pwd-hash-output" class="mono-text typing-glitch"></span>
+                            </div>
+                            <div id="pwd-network-explainer" class="network-explainer hidden">
+                                <span class="sys-out">> Connecting to server...</span><br>
+                                <span class="sys-out">> Sending a safe clue (first 5 letters):</span> <span class="prefix-highlight" id="pwd-prefix"></span><br>
+                                <span class="sys-out">> Keeping the rest a secret on your computer.</span>
+                            </div>
+                        </div>
+
+                        <div id="password-result" class="result-card hidden"></div>
+                    </div>
+
+                    <div class="tab-content" id="email-tab">
+                        <p class="cyber-desc">>> Enter your email. Using encrypted HTTPS to check against the real XposedOrNot database.</p>
+                        <div class="input-group">
+                            <input type="email" id="email-input" class="cyber-input" placeholder="ENTER EMAIL">
+                            <button id="check-email-btn" class="cyber-btn">
+                                <span class="btn-text">CHECK NOW</span>
+                            </button>
+                        </div>
+                        
+                        <div id="email-hash-vis" class="hash-vis hidden">
+                            <div class="hash-step">
+                                <span class="label">Math:</span> <span class="highlight">Secure Email Scramble</span>
+                            </div>
+                            <div class="hash-step">
+                                <span class="label">Result:</span> <span id="email-hash-output" class="mono-text typing-glitch"></span>
+                            </div>
+                            <div id="email-network-explainer" class="network-explainer hidden">
+                                <span class="sys-out">> Connecting to global email leak registry...</span>
+                            </div>
+                        </div>
+
+                        <div id="email-result" class="result-card hidden"></div>
+                    </div>
+
+                    <!-- NEW: Generator Tab -->
+                    <div class="tab-content" id="generator-tab">
+                        <p class="cyber-desc">>> Combine keywords and cyber-entropy to forge an unbreachable code.</p>
+                        <div class="input-group">
+                            <input type="text" id="keyword-input" class="cyber-input" placeholder="ENTER 1-3 KEYWORDS (e.g. dragon sky)">
+                            <button id="generate-btn" class="cyber-btn">
+                                <span class="btn-text">GENERATE</span>
+                            </button>
+                        </div>
+                        <div id="generator-result" class="result-card hidden" style="text-align: center;">
+                            <h3 style="color: var(--cyan); margin-bottom: 1rem;">>> FORGED PASSWORD</h3>
+                            <div class="generated-output-box" id="generated-output"></div>
+                            <button id="copy-btn" class="sub-tab-btn">COPY TO CLIPBOARD</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PAGE 2: ABOUT -->
+            <section id="about-page" class="page">
+                <div class="cyber-panel">
+                    <div class="panel-header">>> HOW WE PROTECT YOU</div>
+                    <div class="panel-body info-body">
+                        <h3>Zero-Knowledge System (How you stay safe)</h3>
+                        <p>When you type your sensitive data (like a password) into Credential Breach Checker, it <strong>never</strong> leaves your computer in plain text.</p>
+                        
+                        <div class="info-block">
+                            <h4>01. Scrambling Text Locally</h4>
+                            <p>Your browser uses secure math to turn your password into a scrambled puzzle that can never be reversed.</p>
+                        </div>
+
+                        <div class="info-block">
+                            <h4>02. Sending Safe Clues</h4>
+                            <p>For passwords, we split the scrambled puzzle in two. We only send the first tiny piece (5 letters) to our server. The server replies with a list of matches, without ever knowing your actual password.</p>
+                        </div>
+
+                        <div class="info-block">
+                            <h4>03. Private Checking</h4>
+                            <p>Your computer compares the secret remaining piece to the server's list. The server never learns which specific password you checked.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PAGE 3: TEAM -->
+            <section id="team-page" class="page">
+                <div class="cyber-panel transparent-panel">
+                    <div class="panel-header">>> TEAM MEMBERS // COLLEGE HACKATHON</div>
+                    <div class="team-grid">
+                        
+                        <!-- Member 1 -->
+                        <div class="team-member">
+                            <div class="avatar-box">
+                                <svg viewBox="0 0 100 100" fill="none" class="cyber-avatar">
+                                    <path d="M50 10 L90 30 L90 70 L50 90 L10 70 L10 30 Z" stroke="var(--cyan)" stroke-width="2" fill="rgba(0, 255, 255, 0.1)"/>
+                                    <circle cx="50" cy="45" r="15" fill="var(--cyan)" opacity="0.8"/>
+                                    <path d="M25 80 Q50 45 75 80" stroke="var(--cyan)" stroke-width="3" fill="none"/>
+                                </svg>
+                            </div>
+                            <h3 class="member-name">DHANUSH R</h3>
+                            <p class="member-role">BACKEND DEVELOPER</p>
+                            <p class="member-desc">Handles server architecture, API connections, and the secure cryptographic math protocols that keep user data hidden.</p>
+                        </div>
+
+                        <!-- Member 2 -->
+                        <div class="team-member">
+                            <div class="avatar-box">
+                                <svg viewBox="0 0 100 100" fill="none" class="cyber-avatar">
+                                    <path d="M50 10 L90 30 L90 70 L50 90 L10 70 L10 30 Z" stroke="var(--primary)" stroke-width="2" fill="rgba(255, 0, 60, 0.1)"/>
+                                    <rect x="35" y="30" width="30" height="30" fill="var(--primary)" opacity="0.8"/>
+                                    <path d="M20 80 L50 50 L80 80" stroke="var(--primary)" stroke-width="3" fill="none"/>
+                                </svg>
+                            </div>
+                            <h3 class="member-name">JAYANTH D</h3>
+                            <p class="member-role">FRONTEND DEVELOPER</p>
+                            <p class="member-desc">Builds the beautiful cyberpunk animations, responsive user interfaces, and connects the browser directly to global databases.</p>
+                        </div>
+
+                        <!-- Member 3 -->
+                        <div class="team-member">
+                            <div class="avatar-box">
+                                <svg viewBox="0 0 100 100" fill="none" class="cyber-avatar">
+                                    <path d="M50 10 L90 30 L90 70 L50 90 L10 70 L10 30 Z" stroke="var(--matrix)" stroke-width="2" fill="rgba(0, 255, 0, 0.1)"/>
+                                    <polygon points="50,25 70,55 30,55" fill="var(--matrix)" opacity="0.8"/>
+                                    <path d="M30 80 L30 65 L70 65 L70 80" stroke="var(--matrix)" stroke-width="3" fill="none"/>
+                                </svg>
+                            </div>
+                            <h3 class="member-name">HEMALATHA</h3>
+                            <p class="member-role">TECH EVANGELIST</p>
+                            <p class="member-desc">Breaks down our complex Zero-Knowledge Architecture into easy-to-understand concepts and manages the final hackathon pitch.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- PAGE 4: CYBER AI -->
+            <section id="ai-page" class="page">
+                <div class="cyber-panel">
+                    <div class="panel-header">>> NEURAL LINK CYBER AI</div>
+                    <div class="cyber-desc">>> Ask the intelligence matrix about cybersecurity, data breaches, and prevention.</div>
+                    
+                    <div id="chat-box" class="chat-container">
+                        <div class="chat-message ai-message">
+                            <span class="chat-sender">SYS_AI:</span> Welcome, User. How can I help secure your systems today?
+                        </div>
+                    </div>
+
+                    <div class="chat-input-area">
+                        <div class="input-group" style="margin-bottom: 0;">
+                            <input type="text" id="chat-input" class="cyber-input" placeholder="Type your query...">
+                            <button id="chat-send-btn" class="cyber-btn">
+                                <span class="btn-text">SEND</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
