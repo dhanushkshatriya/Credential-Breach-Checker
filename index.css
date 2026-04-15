@@ -22,19 +22,16 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
     position: relative;
-    
-    /* Grid background */
-    background-image: 
-        linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
-    background-size: 30px 30px;
-    background-position: 0 0;
-    animation: scrollGrid 20s linear infinite;
 }
 
-@keyframes scrollGrid {
-    0% { background-position: 0 0; }
-    100% { background-position: 30px 30px; }
+#galaxyCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
 }
 
 /* Scanlines */
